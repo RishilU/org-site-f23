@@ -56,6 +56,7 @@ module.exports = {
         lucidity: ['var(--lucidity)'],
         campground: ['var(--campground)'],
         cooper: ['var(--cooper)'],
+        rust: ['var(--rust)'],
       },
       scale: {
         85: '0.85',

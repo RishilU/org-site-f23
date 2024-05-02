@@ -52,6 +52,7 @@ export const JoinPage = () => {
       </Head>
       <div className="inline-flex flex-col items-start relative bg-beige w-[100%] font-roboto">
         <div className="flex bg-[#fff8f3] items-center justify-center gap-[5%] pt-[10rem] pb-[6rem] relative w-[100%] z-0">
+          {/* Unlock benefits of joining ais section */}
           <div className="flex-col items-center gap-[24px] flex relative w-[80%] md:w-[45%]">
             <p className="font-placard-bold tracking-wide text-5xl text-center md:text-start">
               UNLOCK THE BENEFITS OF JOINING AIS
@@ -84,6 +85,7 @@ export const JoinPage = () => {
             hidden md:block
           "/>
         </div>
+        {/* Application section */}
         <div id="apps" className="bg-[#fff8f3] flex flex-col items-center justify-center gap-[10px] pb-[12rem] relative self-stretch w-full flex-[0_0_auto]">
           <div className=" flex flex-col items-center justify-center gap-[56px] relative self-stretch w-full flex-[0_0_auto]">
             <div className=" inline-flex items-center gap-[5px] relative flex-[0_0_auto]">
@@ -92,6 +94,7 @@ export const JoinPage = () => {
                 APPLICATIONS
               </div>
             </div>
+            {/* Apply options */}
             <div className="w-full justify-items-center grid grid-cols-1 gap-[2rem] px-[calc(50%-10rem)]
               md:px-[calc(30%-12rem)] md:grid-rows-2 md:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4 xl:px-[calc(25%-12rem)] text-center">
               <AppBox title="AIS Member"
@@ -114,7 +117,6 @@ export const JoinPage = () => {
           </div>
         </div>
                                                   
-
 
 
 

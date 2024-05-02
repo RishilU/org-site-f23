@@ -1,9 +1,6 @@
 import Head from 'next/head';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import Appbar from './Appbar'
-import Footer from './Footer';
-//import Snowfall from 'react-snowfall';
 import { Coda } from 'coda-js';
 
 export default function Profile() {
@@ -191,21 +188,6 @@ export default function Profile() {
     );
   }
 
-  //snow animation disabled on this page to prevent interfering with a qr code scan (interpreting as wrong link due to covering a single pixel)
-  // function Snow()
-  // {
-  //   return (
-  //     <Snowfall
-  //       color="#FFFFFF"
-  //       radius={[0.5,3.0]}
-  //       snowflakeCount={150}
-  //       speed={[0.5,1.5]}
-  //       wind={[-0.3,0.7]}
-  //       rotationSpeed={[0,0]}
-  //     />
-  //   );
-  // }
-
   return (
     <>
       <Head>
@@ -217,12 +199,6 @@ export default function Profile() {
         />
       </Head>
       <main className="min-h-screen bg-hai-beige font-oriya text-ais-white subpixel-antialiased overflow-x-hidden">
-        <section id="appbar" className="fixed z-50 uppercase text-white font-bold text-xl">
-          <Appbar/>
-        </section>
-        <section id="snow" className="fixed w-[100vw] h-[100vh] z-40 [pointer-events:none]">
-          {/*<Snow/>*/}
-        </section>
         <section id="profile" className="relative w-[100vw] h-[100vh] pt-[5rem] z-0">
           {auth ? profile() : login()}
         </section>

@@ -96,7 +96,7 @@ export default function SiteHeader() {
               aria-expanded={open ? 'true' : undefined}
               onClick={handleMenu}
             >
-              <img src="images/icons/hamburger-icon.svg" className="h-[1.5rem] object-contain"/>
+              <img src="images/Icons/hamburger-icon.svg" className="h-[1.5rem] object-contain"/>
             </Button>
             <Menu
               id="basic-menu"

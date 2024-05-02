@@ -14,6 +14,7 @@ export const AboutPage = () => {
   <div className = "bg-ais-new-beige font-roboto">
     <div className="w-[100%] flex flex-col gap-[4rem] pt-[7rem] pb-[5rem] max-w-[1400px] px-[4rem] 2xl:px-[0px] mx-auto">
       <div className="relative w-[100%] pt-[4rem] z-0">
+        {/* title */}
         <div className="w-[100%] [text-shadow:0px_4px_4px_#00000040] font-placard tracking-wide text-[#361cff] font-bold text-[96px] text-center">
           WHO WE ARE
         </div>
@@ -37,6 +38,7 @@ export const AboutPage = () => {
         />
       </div>
       <div className="flex items-center justify-between w-full gap-[20px]">
+        {/* Our mission region */}
         <div className="flex flex-col items-start gap-[20px]">
           <div className="relative font-placard tracking-wide font-bold text-[#3e6eff] text-[48px] text-center self-center sm:text-left sm:self-start">
             OUR MISSION
@@ -47,6 +49,7 @@ export const AboutPage = () => {
         </div>
         <img className="w-[258px] min-w-[258px] h-[265.2px] object-cover rounded-[10px] opacity-0 hidden sm:block" alt="Placeholder image" src="/images/placeholder.png" />
       </div>
+      {/* How we started region */}
       <div className="flex items-center justify-between relative w-full gap-[20px] xl:gap-[5rem] ">
         <div className="text-center text-lg w-[258px] min-w-[258px] hidden sm:block">
           <img

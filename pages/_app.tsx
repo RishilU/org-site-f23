@@ -79,6 +79,14 @@ const primer = localFont({
   ]
 });
 
+const rust = localFont({
+  src: [
+    {
+      path: "../public/tech-tank/fonts/intro-rust/IntroRust-Base.otf",
+    }
+  ]
+});
+
 /**
  * A wrapper for the root website component.
  */
@@ -108,6 +116,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           --campground: ${campground.style.fontFamily};
           --fredoka: ${fredoka.style.fontFamily};
           --primer: ${primer.style.fontFamily};
+          --rust: ${rust.style.fontFamily};
         }
       `}</style>
 

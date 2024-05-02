@@ -160,7 +160,7 @@ export default function TeamPage({ officers }: TeamPageProps) {
             />
             <TabContext value={value}>
               <Tabs value={value} onChange={handleChange} defaultValue={"All Members"} aria-label="teams" variant="scrollable" scrollButtons allowScrollButtonsMobile centered className="w-full bg-ais-new-orange h-[3rem] lg:pl-[calc(50%-551px)]">
-                <Tab value="All Members" label="All" /> // State for managing currently selected tab
+                <Tab value="All Members" label="All" /> {/*State for managing currently selected tab*/}
                 <Tab value="Executive Members" label="Executive" />
                 <Tab value="Membership Members" label="Membership" />
                 <Tab value="Operation Members" label="Operations" />
