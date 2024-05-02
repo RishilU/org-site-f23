@@ -42,7 +42,7 @@ export const AboutPage = () => {
             OUR MISSION
           </div>
           <p className="text-[#293039]">
-            Make artificial intelligence understandable and accessible to everyone. We want to demystify AI for all.
+            Make artificial intelligence understandable and accessible to everyone. We want to demystify AI for all. 
           </p>
         </div>
         <img className="w-[258px] min-w-[258px] h-[265.2px] object-cover rounded-[10px] opacity-0 hidden sm:block" alt="Placeholder image" src="/images/placeholder.png" />
@@ -73,30 +73,38 @@ export const AboutPage = () => {
       <div className="font-placard tracking-wide text-[#361cff] text-black text-center font-bold uppercase text-5xl sm:text-8xl">
         Our Programs
       </div>
-      <div className="w-full flex flex-col sm:flex-row justify-between gap-x-4 items-start pt-7 pb-5 px-4 max-w-[1400px] mx-auto">
-        <div className="w-full sm:w-1/2 text-center">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 items-start pt-7 pb-5 px-4 max-w-[1400px] mx-auto">
+        <div className="text-center">
           <CollapsibleItem
             title="AI Mentorship"
             sampleText="Every semester, students with zero experience have the opportunity to participate in the AIM program to build a semester-long AI project with a team of fellow peers and guidance from an experienced mentor. If you are interested in diving head-first into the field of AI through a structured, fast-paced, hands-on learning program, then AIM is the place for you!"
           />
+        </div>
+        <div className="text-center">
           <CollapsibleItem
             title="Socials"
             sampleText="We host various social events for UTD students to get together and connect throughout the year."
           />
+        </div>
+        <div className="text-center">
           <CollapsibleItem
             title="AI51"
             sampleText="AI51 is our official program where experienced students involved with AIS can work on club-sponsored projects as a next step for refining their technical expertise in the field."
           />
         </div>
-        <div className="w-full sm:w-1/2 text-center">
+        <div className="text-center">
           <CollapsibleItem
             title="HackAI"
             sampleText="AIS hosts a 24-hour hackathon in which students can come together as a community of AI enthusiasts, network with industry professionals, utilize modern AI tools to create powerful and impressive projects to showcase. HackAI comes with food, swag, prizes and fun!"
           />
+        </div>
+        <div className="text-center">
           <CollapsibleItem
             title="Workshops"
             sampleText="Learn about AI through engaging workshops hosted by the AI team at AIS."
           />
+        </div>
+        <div className="text-center">
           <CollapsibleItem
             title="Industry Events"
             sampleText="Learn about the role of AI in the real world straight from the companies leveraging it to innovate and push the boundaries of what's possible. Listen and network with company representatives and tap into rich industry insights."
@@ -109,3 +117,4 @@ export const AboutPage = () => {
 };
 
 export default AboutPage;
+

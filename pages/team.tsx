@@ -34,6 +34,27 @@ export default function TeamPage({ officers }: TeamPageProps) {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+  const [isSmallScreen, setIsSmallScreen] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 520); // Adjust the breakpoint as needed
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize); // Add event listener for window resize
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Cleanup function
+    };
+  }, []);
+
+  // Sorting logic for officers remains unchanged
+
+  for (const off of officers) {
+    // Team categorization remains unchanged
+  };
+
 
   //this sorting logic sorts the whole list of officers, but imagine it is only for a specific team when you are tracing it/thinking about it
   officers.sort((a,b) => {
@@ -124,18 +145,19 @@ export default function TeamPage({ officers }: TeamPageProps) {
           <div className="flex flex-grow flex-wrap -mt-10 pt-10 pb-8 gap-8 justify-around relative">
             {/* Absolute positioned images */}
             {/* Blue star positioned at the bottom right */}
-            <img
-              src="/images/Shapes/team_blue_star.png"
-              alt="Blue star"
-              className="absolute bottom-5 -right-16 h-60 w-40"
-            />
+            { !isSmallScreen && (
+              <img
+                src="/images/Shapes/team_blue_star.png"
+                alt="Blue star"
+                className="absolute bottom-10 -right-20 h-80 w-80"
+              />
+            )}
             {/* Yellow star positioned at the top left */}
             <img
               src="/images/Shapes/team_yellow_star.png"
               alt="Yellow star"
               className="absolute top-40 -left-20 h-60 w-60"
             />
-
             <TabContext value={value}>
               <Tabs value={value} onChange={handleChange} defaultValue={"All Members"} aria-label="teams" variant="scrollable" scrollButtons allowScrollButtonsMobile centered className="w-full bg-ais-new-orange h-[3rem] lg:pl-[calc(50%-551px)]">
                 <Tab value="All Members" label="All" /> // State for managing currently selected tab

@@ -167,13 +167,6 @@ export default JoinPage;
 
 
 
-
-
-
-
-
-
-
 function AppBox( { title, desc, appLink, learnLink } )
 {
   return(

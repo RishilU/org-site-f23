@@ -19,9 +19,9 @@ const CollapsibleItem = ({ title, sampleText }) => {
           </div>
           <div className="ml-2 text-xl">
             {isExpanded ? (
-              <img src="/about-programs-downarrow.png" alt="Down Arrow" className="h-3"/> // Down arrow
+              <img src="/images/AboutUs/about-programs-downarrow.png" alt="Down Arrow" className="h-3"/> // Down arrow
             ) : (
-              <img src="/about-programs-sidearrow.png" alt="Side Arrow" className="h-6"/> // Side arrow
+              <img src="/images/AboutUs/about-programs-sidearrow.png" alt="Side Arrow" className="h-6"/> // Side arrow
             )}
           </div>
         </div>
