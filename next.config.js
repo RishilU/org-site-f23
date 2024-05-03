@@ -45,6 +45,12 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/aim/discord',
+        destination: 'https://discord.gg/6rVUmAy54Z',
+        basePath: false,
+        permanent: true,
+      },
+      {
         source: '/aim/mentor/apply',
         destination: 'https://coda.io/form/AIM-Mentor-App-S24_d_bf3ew0yIT',
         basePath: false,

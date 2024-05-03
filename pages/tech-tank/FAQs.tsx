@@ -9,12 +9,12 @@ const questions = [
   {
     icon: "/tech-tank/faq-icons/handhshake.svg",
     heading: "Do I need to have a team?",
-    body: <>Although you can work in up to a team of <b>4</b>, you do not have to have a team. We will have a team matching session if you would like to find a team, but going solo is allowed.</>
+    body: <>Although you can work in up to a team of <b>4</b>, you do not have to have a team. We will have a team matching session for those who don&apos;t already have one.</>
   },
   {
     icon: "/tech-tank/faq-icons/person.svg",
     heading: "Who can attend?",
-    body: <>You must be at least <b>18 years</b> of age. Non-STEM majors, beginner coders, and even those with <b>zero AI experience</b> are welcomed and encouraged to join us! This event is meant to introduce AI to everyone. All you need is a drive and passion to learn!</>
+    body: <>You must be a <b>UTD student</b> at least <b>18 years</b> of age. However, non-STEM majors, beginner coders, and even those with <b>zero AI experience</b> are welcomed and encouraged to join us! This event is meant to introduce AI to everyone. All you need is a drive and passion to learn!</>
   },
   {
     icon: "/tech-tank/faq-icons/wallet.svg",
@@ -57,9 +57,9 @@ function FAQs() {
   return (
   <>
     <div className="pt-[5rem] pb-[3rem] flex flex-col items-center">
-      <Typography className="font-placard font-bold text-hai-white text-5xl tracking-wider mb-[6px]">
+      <div className="font-placard font-bold text-hai-white text-5xl tracking-wider mb-[6px]">
         FAQS
-      </Typography>
+      </div>
       <Typography className="font-roboto text-center text-hai-white text-lg tracking-wide px-[1rem] mb-[2rem]">
         Please reach out to us on Discord if you have any additional questions!
       </Typography>

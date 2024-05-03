@@ -37,6 +37,11 @@ export default function EventsPage({ events }: EventsPageProps) {
     else futureEvents.push(eachEvent); {/*this could be "onGoingEvents" also in a future, more developed version of this page*/}
   });
 
+  futureEvents.sort(function(a:Event,b:Event){
+    const dif = new Date(a.startDate).valueOf() - new Date(b.startDate).valueOf();
+    return dif;
+  });
+
   const pastEventCards = pastEvents.map((event) => {
     if (activeCategory !== 'All') {
       if (!viewAllPastEvents) {
@@ -64,7 +69,6 @@ export default function EventsPage({ events }: EventsPageProps) {
   const futureEventCards = futureEvents.map((event) => {
     return <FeatureEvent key={event.id} event={event} onGoing={true}/>;
   });
-
   
   const onGoingEventCards = onGoingEvents.map((event) => {
     return <FeatureEvent key={event.id} event={event} onGoing={true} />;
@@ -110,7 +114,7 @@ export default function EventsPage({ events }: EventsPageProps) {
           ? 
         <>
           <div className="text-ais-new-soft-black py-[1rem] pl-[3rem] sm:pl-[2rem]">Stay up to date with our upcoming events here and on our socials!</div>
-          {futureEventCards[futureEventCards.length-1]}
+          {futureEventCards[0]}
         </>
           :
         <div className="text-ais-new-soft-black py-[1rem] pl-[3rem] sm:pl-[2rem]">Coming soon!</div>}

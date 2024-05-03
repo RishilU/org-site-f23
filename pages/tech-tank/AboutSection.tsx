@@ -38,7 +38,7 @@ function AboutSection()
                 <div className="font-placard font-normal text-2xl ml-2 md:text-3xl md:mb-2">Our Mission</div>
               </div>
               <div className="text-lg font-roboto">
-              We hope to demystify this special niche in computer science and bring it forward to all students through an AI-related makeathon. We aim for our events to provide opportunities for students to learn about the field and connect with experienced professionals who can further guide them in their AI journey.
+              We hope to demystify this special niche in computer science and bring it forward to all students through an AI-related conference. We aim for our events to provide opportunities for students to learn about the field and connect with experienced professionals who can further guide them in their AI journey.
               </div>
             </div>
             <div 
@@ -54,7 +54,7 @@ function AboutSection()
                 <div className="font-placard font-normal text-2xl ml-2 md:text-3xl md:mb-2">What is Tech Tank?</div>
               </div>
               <div className="text-lg font-roboto">
-                Student-run makeathon organized by the Artificial Intelligence Society (AIS) at UTD, aiming to empower students with the knowledge and resources needed to build Artificial Intelligence related projects in the span of 24 hours. Our goal is to provide UTD students with a fun-filled, engaging day that will inspire them and ignite their passion for AI.
+                Student-run conference organized by the Artificial Intelligence Society (AIS) at UTD, designed to empower students with the knowledge and resources needed to both build artificial intelligence-related projects and understand their impact in the real world. Our goal is to provide UTD students with a fun-filled, engaging day that will inspire them and ignite their passion for AI.
               </div>
             </div>
             <div 

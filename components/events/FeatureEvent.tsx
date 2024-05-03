@@ -91,7 +91,7 @@ export default function FeatureEvent({ event, onGoing }: EventItemProps) {
                     className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
                     rel="noreferrer"
                   >
-                    <img src="/apple.svg" className="h-5" />
+                    <img src="/images/Logos/apple.svg" className="h-5" />
                     Apple
                   </a>
                 </Menu.Item>
@@ -102,7 +102,7 @@ export default function FeatureEvent({ event, onGoing }: EventItemProps) {
                     className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
                     rel="noreferrer"
                   >
-                    <img src="/google.svg" className="h-4" />
+                    <img src="/images/Logos/google.svg" className="h-4" />
                     Google
                   </a>
                 </Menu.Item>
@@ -113,7 +113,7 @@ export default function FeatureEvent({ event, onGoing }: EventItemProps) {
                     className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
                     rel="noreferrer"
                   >
-                    <img src="/outlook.svg" className="h-4" />
+                    <img src="/images/Logos/outlook.svg" className="h-4" />
                     Outlook
                   </a>
                 </Menu.Item>
