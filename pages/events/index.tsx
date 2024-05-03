@@ -1,3 +1,4 @@
+
 import Head from 'next/head';
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Event } from '../../lib/types';
@@ -237,3 +238,5 @@ function EventsButton(props) {
     </button>
   );
 }
+
+
