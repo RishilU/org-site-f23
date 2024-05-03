@@ -81,7 +81,7 @@ export default function EventPage({
 
   let linkText = inPast ? 'Watch Recording' : inFuture ? 'Stream Link' : 'Join event';
 
-  const supplementItems = supplements.map((supplement) => {
+  const supplementItems = supplements ? supplements.map((supplement) => {
     const { title, caption, link, image, type } = supplement;
     return (
       <aside key={link} className="pb-4 rounded-md shadow-md bg-white">
@@ -92,7 +92,7 @@ export default function EventPage({
         </div>
       </aside>
     );
-  });
+  }) : [];
 
   const eventTime = Moment(eventStart).format('MMM D, YYYY @ h:mm a') + ' CST';
 
@@ -292,11 +292,10 @@ export default function EventPage({
         <title>{title} &ndash; AIS</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
-      <div className="mt-8">
         <main className="min-h-screen">
           <section className="p-4 mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl">
             <header className="">
-              <div className="flex items-center pb-16 -mx-2 md:pb-0 md:-mx-36">
+              <div className="flex items-center pb-16 mt-20 -mx-2 md:pb-0 md:-mx-36">
                 <div
                   tabIndex={0}
                   className="p-2 hover:bg-gray-300 rounded-full focus:bg-gray-400 cursor-pointer"
@@ -333,7 +332,6 @@ export default function EventPage({
       </section> */}
         </main>
       </div>
-    </div>
   );
 }
 
