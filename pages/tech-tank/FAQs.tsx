@@ -9,7 +9,7 @@ const questions = [
   {
     icon: "/tech-tank/faq-icons/handhshake.svg",
     heading: "Do I need to have a team?",
-    body: <>Although you can work in up to a team of <b>4</b>, you do not have to have a team. We will have a team matching session if you would like to find a team, but going solo is allowed.</>
+    body: <>Although you can work in up to a team of <b>4</b>, you do not have to have a team. We will have a team matching session for those who don&apos;t already have one.</>
   },
   {
     icon: "/tech-tank/faq-icons/person.svg",
