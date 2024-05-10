@@ -8,6 +8,9 @@ import * as fs from 'fs';
  */
 let EVENTS_MAP: { [key: string]: Event } = {};
 
+
+
+
 /**
  * Fetch event information.
  *
@@ -48,65 +51,107 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
     const table = await doc.getTable('All Events'); // Grab the actual table from the doc
     const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the event entries in the doc
 
-    // For each event in the table, get tehe variables
-    for (let i = 0; i < rows.length; i++) {
-      const eventPresenters: { name: string; link: string }[] = [];
-      for (const presenterName of rows[i].values['Presenter(s)']
-        .replace(/```/gi, '')
-        .split(', ')) {
-        eventPresenters.push({
-          name: presenterName,
-          link: '',
-        });
-      }
+    // Assuming 'rows' is an array of objects with properties including 'values' containing an object with a property 'Presenter(s)' and 'Do not show'
+// For each event in the table, get the variables
+for (let i = 0; i < rows.length; i++) {
+  // Check if the event should be shown based on the 'Do not show' field
+  if (rows[i].values['Do not show'] === 'Yes') {
+    // Skip this event if 'Do not show' is set to 'Yes'
+    continue;
+  }
 
-      let watchLink: string;
-      if (typeof rows[i].values['Watch Link'] == 'string')
-        watchLink = rows[i].values['Watch Link'].replace(/```/gi, '');
-      else watchLink = rows[i].values['Watch Link']['url'];
 
-      let rsvp: string;
-      if (typeof rows[i].values['RSVP Link'] == 'string')
-        rsvp = rows[i].values['RSVP Link'].replace(/```/gi, '');
-      else rsvp = rows[i].values['RSVP Link']['url'];
+ // Parse presenters for the event
+ const eventPresenters: { name: string; link: string }[] = [];
+ for (const presenterName of rows[i].values['Presenter(s)']
+   .replace(/```/gi, '')
+   .split(', ')) {
+   eventPresenters.push({
+     name: presenterName,
+     link: '',
+   });
+ }
 
-      let imageUrl = rows[i].values['Flyer'];
-      if (typeof imageUrl == 'string')
-        imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
-      else if (Array.isArray(imageUrl)) {
-        if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
-        else imageUrl = null;
-      } else imageUrl = imageUrl['url'];
-
-      let slideLink: string;
-      if (typeof rows[i].values['Slides Link'] == 'string') {
-        slideLink = rows[i].values['Slides Link'].replace(/```/gi, '');
-        slideLink = slideLink.substring(slideLink.indexOf('(') + 1, slideLink.indexOf(')'));
-      } else {
-        slideLink = rows[i].values['Slides Link']['url'];
-      }
-
-      const eventToAdd: Event = {
-        id: rows[i].values['URL Extension'].replace(/```/gi, ''),
-        title: rows[i].values['Event Title'].replace(/```/gi, ''),
-        description: rows[i].values['Description'].replace(/```/gi, ''),
-        presenters: eventPresenters,
-        location: rows[i].values['Location'].replace(/```/gi, ''),
-        eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
-        joinLink: watchLink,
-        rsvpLink: rsvp,
-        startDate: rows[i].values['Event Date'].length > 0 ? rows[i].values['Event Date'] : null,
-        endDate: rows[i].values['Event End Date'].length > 0 ? rows[i].values['Event End Date'] : null,
-        image: imageUrl,
-        slides: slideLink,
-        lastUpdated: new Date().toISOString(),
-      };
-      //console.log(rows[i].values);
-      if (eventToAdd['id'] === '') continue;
-      EVENTS_MAP[eventToAdd['id']] = eventToAdd;
+ // Send event data to backend
+ fetch('https://coda.io/d/Event-Tracking_dluD4Jth4qA/Events_suqfB#_lu2As', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    eventName: rows[i].values['Event Name'],
+    presenters: eventPresenters,
+    // Add any additional data you want to send to the backend
+  }),
+})
+  .then((response) => {
+    if (response.ok) {
+      console.log('Event data sent successfully');
+    } else {
+      console.error('Failed to send event data:', response.statusText);
     }
-    // Create an offline backup if necessary
-    storeEvents();
+  })
+  .catch((error) => {
+    console.error('Error sending event data:', error);
+  });
+
+   // Update frontend UI (for example, add event to a list)
+  const eventListItem = document.createElement('li');
+  eventListItem.textContent = rows[i].values['Event Name'];
+  // Add event list item to the frontend UI
+  document.getElementById('eventList').appendChild(eventListItem);
+
+
+
+  let watchLink: string;
+  if (typeof rows[i].values['Watch Link'] == 'string')
+    watchLink = rows[i].values['Watch Link'].replace(/```/gi, '');
+  else watchLink = rows[i].values['Watch Link']['url'];
+
+  let rsvp: string;
+  if (typeof rows[i].values['RSVP Link'] == 'string')
+    rsvp = rows[i].values['RSVP Link'].replace(/```/gi, '');
+  else rsvp = rows[i].values['RSVP Link']['url'];
+
+  let imageUrl = rows[i].values['Flyer'];
+  if (typeof imageUrl == 'string')
+    imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
+  else if (Array.isArray(imageUrl)) {
+    if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
+    else imageUrl = null;
+  } else imageUrl = imageUrl['url'];
+
+  let slideLink: string;
+  if (typeof rows[i].values['Slides Link'] == 'string') {
+    slideLink = rows[i].values['Slides Link'].replace(/```/gi, '');
+    slideLink = slideLink.substring(slideLink.indexOf('(') + 1, slideLink.indexOf(')'));
+  } else {
+    slideLink = rows[i].values['Slides Link']['url'];
+  }
+
+  
+
+  const eventToAdd: Event = {
+    id: rows[i].values['URL Extension'].replace(/```/gi, ''),
+    title: rows[i].values['Event Title'].replace(/```/gi, ''),
+    description: rows[i].values['Description'].replace(/```/gi, ''),
+    presenters: eventPresenters,
+    location: rows[i].values['Location'].replace(/```/gi, ''),
+    eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
+    joinLink: watchLink,
+    rsvpLink: rsvp,
+    startDate: rows[i].values['Event Date'].length > 0 ? rows[i].values['Event Date'] : null,
+    endDate: rows[i].values['Event End Date'].length > 0 ? rows[i].values['Event End Date'] : null,
+    image: imageUrl,
+    slides: slideLink,
+    lastUpdated: new Date().toISOString(),
+  };
+  //console.log(rows[i].values);
+  if (eventToAdd['id'] === '') continue;
+  EVENTS_MAP[eventToAdd['id']] = eventToAdd;
+}
+// Create an offline backup if necessary
+storeEvents();
   } catch (error) {
     console.log(error);
     console.log('Error No: ' + error.errno);

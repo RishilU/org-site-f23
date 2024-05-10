@@ -13,7 +13,7 @@ function JoinUs() {
   };
 
   return (
-    <div className="flex flex-col items-center text-center ">
+    <div className="flex flex-col items-center text-center mt-70 ">
       <section className="w-full flex flex-col items-center">
         <img
           src="/images/Joinjoinus-banner.png"
@@ -25,9 +25,9 @@ function JoinUs() {
           />
         </div>
         <div className="flex flex-wrap mb-10 max-h-full md:max-h-[20rem] h-auto w-full sm:w-[calc(100%-2rem)] max-w-[1400px] px-[4rem] 2xl:px-[0px] ">
-          <img src="joinus-steps-1.png" className="w-2/3 sm:w-1/3 h-auto mb-2 sm:mb-0" />
-          <img src="joinus-steps-2.png" className="w-2/3 sm:w-1/3 h-auto ml-auto mb-2 sm:mb-0 " />
-          <img src="joinus-steps-3.png" className="w-2/3 sm:w-1/3 h-auto mb-2 sm:mb-0" />
+          <img src="/images/Join/joinus-steps-1.png" className="w-2/3 sm:w-1/3 h-auto mb-2 sm:mb-0" />
+          <img src="/images/Join/joinus-steps-2.png" className="w-2/3 sm:w-1/3 h-auto ml-auto mb-2 sm:mb-0 " />
+          <img src="/images/Join/joinus-steps-3.png" className="w-2/3 sm:w-1/3 h-auto mb-2 sm:mb-0" />
         </div>
         <div className=" w-[162px] h-[48px] bg-[#3E6EFF] rounded-[57px] mb-10 [cursor:pointer]"
           onClick={() => handleItemClick('/join')}
